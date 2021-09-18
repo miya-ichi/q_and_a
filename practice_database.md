@@ -20,7 +20,7 @@
 - users
   - id:integer
   - name:string
-  - mail:string
+  - email:string
   - avater:string
   - admin:boolean
   - password_digest:string
