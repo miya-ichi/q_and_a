@@ -1,0 +1,24 @@
+.mb-3
+table.table.table-hover
+  tbody
+    tr
+      th= Question.human_attribute_name(:user_id)
+      td
+        = image_tag question.user.avater.url, height: 75, class: 'rounded-circle'
+        br
+        = question.user.name
+    tr
+      th= Question.human_attribute_name(:title)
+      td= question.title
+    tr
+      th= Question.human_attribute_name(:body)
+      td= simple_format(h(question.body), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Question.human_attribute_name(:solved)
+      td= question.solved ? '解決済み' : '未解決'
+    tr
+      th= Question.human_attribute_name(:created_at)
+      td= question.created_at
+    tr
+      th= Question.human_attribute_name(:updated_at)
+      td= question.updated_at

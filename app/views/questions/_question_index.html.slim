@@ -1,0 +1,30 @@
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Question.human_attribute_name(:user_id)
+      th= Question.human_attribute_name(:title)
+      th= Question.human_attribute_name(:solved)
+      th= Question.human_attribute_name(:created_at)
+      th= Question.human_attribute_name(:updated_at)
+      - if admin_login?
+        th
+  tbody
+    - questions.each do |question|
+      tr
+        td
+          = image_tag question.user.avater.url, height: 50, class: 'rounded-circle'
+          br
+          = question.user.name
+        - if admin_login?
+          td= link_to question.title, admin_question_path(question)
+        - else
+          td= link_to question.title, question_path(question)
+        td= question.solved ? '解決済み' : '未解決'
+        td= question.created_at
+        td= question.updated_at
+        - if admin_login?
+          td= link_to '削除', admin_question_path(question), method: :delete, data: { confirm: "質問「#{question.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+.mb-3
+  = paginate questions
+  = page_entries_info questions

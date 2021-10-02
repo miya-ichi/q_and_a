@@ -1,0 +1,15 @@
+| #{@answer.user.name}さんが質問に回答しました
+
+ul
+  li
+    | 質問者：
+    = @answer.question.user.name
+  li
+    | 質問タイトル：
+    = @answer.question.title
+  li
+    | 内容：
+    = simple_format(@answer.question.body)
+  li
+    | 回答：
+    = simple_format(@answer.body)

@@ -1,0 +1,16 @@
+h1 質問一覧
+
+.btn-group.mb-5.col
+  = link_to '全て', questions_path, class: 'btn btn-light'
+  = link_to '未解決', questions_unsolved_path, class: 'btn btn-light'
+  = link_to '解決済み', questions_solved_path, class: 'btn btn-light'
+
+= search_form_for @q, class: 'mb-5 form-inline justify-content-center' do |f|
+  .form-group
+    = f.search_field :title_cont, class: 'form-control mr-3', size: 100
+    = f.submit class: 'btn btn-primary'
+
+- if current_user
+  = link_to '質問を投稿', new_question_path, class: 'btn btn-primary btn-block btn-lg mb-5'
+
+= render 'question_index', questions: @questions

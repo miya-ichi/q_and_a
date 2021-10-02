@@ -1,0 +1,11 @@
+h2 回答
+table.table.table-hover
+  tbody
+    - @question.answers.each do |answer|
+      tr
+        td
+          = image_tag answer.user.avater.url, height: 75, class: 'rounded-circle'
+          br
+          = answer.user.name
+        td= answer.body
+        td= answer.created_at
