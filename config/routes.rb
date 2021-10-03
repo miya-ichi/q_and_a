@@ -16,10 +16,12 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get 'questions/solved', to: 'questions#solved'
-  get 'questions/unsolved', to: 'questions#unsolved'
-
   resources :questions do
+    collection do
+      get 'solved', to: 'questions#solved'
+      get 'unsolved', to: 'questions#unsolved'
+    end
+
     resources :answers
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

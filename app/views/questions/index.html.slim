@@ -2,8 +2,8 @@ h1 質問一覧
 
 .btn-group.mb-5.col
   = link_to '全て', questions_path, class: 'btn btn-light'
-  = link_to '未解決', questions_unsolved_path, class: 'btn btn-light'
-  = link_to '解決済み', questions_solved_path, class: 'btn btn-light'
+  = link_to '未解決', unsolved_questions_path, class: 'btn btn-light'
+  = link_to '解決済み', solved_questions_path, class: 'btn btn-light'
 
 = search_form_for @q, class: 'mb-5 form-inline justify-content-center' do |f|
   .form-group
