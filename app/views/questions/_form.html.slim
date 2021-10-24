@@ -1,0 +1,17 @@
+- if question.errors.present?
+  ul#error_explanation
+    - question.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: question, local: true do |f|
+  .form-group
+    = f.label :title, 'タイトル'
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :body, '質問内容'
+    = f.text_area :body, rows: 5, class: 'form-control'
+  - if question.persisted?
+    .form-group
+      = f.label :solved, '解決済み'
+      = f.check_box :solved
+  = f.submit class: 'btn btn-primary btn-block'

@@ -1,0 +1,9 @@
+| #{@question.user.name}さんが質問を投稿しました
+
+ul
+  li
+    | タイトル：
+    = @question.title
+  li
+    | 内容：
+    = simple_format(@question.body)

@@ -1,0 +1,5 @@
+h1 ユーザー詳細(管理者)
+
+= render 'users/user', user: @user
+
+= link_to 'ログアウト', admin_logout_path, method: :delete, class: 'btn btn-secondary'

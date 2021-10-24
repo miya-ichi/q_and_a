@@ -1,0 +1,26 @@
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= User.human_attribute_name(:name)
+      th= User.human_attribute_name(:email)
+      th= User.human_attribute_name(:avater)
+      th= User.human_attribute_name(:admin)
+      th= User.human_attribute_name(:created_at)
+      th= User.human_attribute_name(:updated_at)
+      - if admin_login?
+        th
+  tbody
+    - users.each do |user|
+      tr
+        - if admin_login?
+          td= link_to user.name, admin_user_path(user)
+        - else
+          td= link_to user.name, user_path(user)
+        td= user.email
+        td= image_tag user.avater.url, height: 75, class: 'rounded-circle'
+        td= user.admin? ? 'あり' : 'なし'
+        td= user.created_at
+        td= user.updated_at
+        - if admin_login?
+          td= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

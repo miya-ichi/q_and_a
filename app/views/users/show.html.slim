@@ -1,0 +1,8 @@
+h1 ユーザー詳細
+
+- if current_user&.id == @user.id
+  = link_to '編集', edit_user_path(@user), class: 'btn btn-primary mr-3'
+
+= render 'user', user: @user
+
+= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-secondary'

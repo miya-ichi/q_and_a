@@ -1,0 +1,14 @@
+| #{@answer.user.name}さんが質問に回答しました
+= "\n"
+| 質問者：
+= @answer.question.user.name
+= "\n"
+| 質問タイトル：
+= @answer.question.title
+= "\n"
+| 内容：
+= "\n"
+= @answer.question.body
+| 回答：
+= "\n"
+= @answer.body
